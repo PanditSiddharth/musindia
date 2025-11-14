@@ -98,7 +98,7 @@ export default function Navbar() {
               aria-controls="mobile-menu"
               className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-orange-400"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? <X className="w-6 h-6 text-gray-700" /> : <Menu className="w-6 h-6 text-gray-700" />}
               <span className="sr-only">{isMenuOpen ? "Close menu" : "Open menu"}</span>
             </button>
           </div>

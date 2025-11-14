@@ -34,7 +34,7 @@ function HomePage() {
       <section className="relative bg-gradient-to-br from-orange-50 via-white to-red-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="rounded-lg overflow-hidden shadow-sm p-4">
-            <h1 className="text-3xl text-red-600 sm:text-4xl md:text-6xl font-bold text-gray-900 mb-6 text-center">
+            <h1 className="text-4xl text-red-600 sm:text-4xl md:text-6xl font-bold text-gray-900 text-center">
             Manav Utthan Samiti 
             </h1>
             {/* <Image

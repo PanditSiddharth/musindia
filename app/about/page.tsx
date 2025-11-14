@@ -155,21 +155,21 @@ export default function AboutPage({ changePage }: any) {
         {/* Core Values */}
         <div className="bg-gradient-to-r from-orange-500 to-red-600 rounded-3xl p-10 md:p-16 text-white shadow-2xl">
           <h3 className="text-4xl font-bold mb-12 text-center">Our Core Values</h3>
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-3 gap-10 text-red-500">
             <div className="text-center bg-white bg-opacity-10 rounded-2xl p-8 backdrop-blur-sm">
               <div className="text-6xl mb-4">⚖️</div>
               <h4 className="font-bold text-2xl mb-3">Equality & Justice</h4>
-              <p className="text-orange-50 text-lg">Promoting social justice and equality for all members of society</p>
+              <p className="text-orange-500 text-lg">Promoting social justice and equality for all members of society</p>
             </div>
             <div className="text-center bg-white bg-opacity-10 rounded-2xl p-8 backdrop-blur-sm">
               <div className="text-6xl mb-4">🕊️</div>
               <h4 className="font-bold text-2xl mb-3">Peace & Harmony</h4>
-              <p className="text-orange-50 text-lg">Building peaceful and harmonious communities together</p>
+              <p className="text-orange-500 text-lg">Building peaceful and harmonious communities together</p>
             </div>
             <div className="text-center bg-white bg-opacity-10 rounded-2xl p-8 backdrop-blur-sm">
               <div className="text-6xl mb-4">🌱</div>
               <h4 className="font-bold text-2xl mb-3">Sustainable Development</h4>
-              <p className="text-orange-50 text-lg">Ensuring growth with environmental consciousness and care</p>
+              <p className="text-orange-500 text-lg">Ensuring growth with environmental consciousness and care</p>
             </div>
           </div>
         </div>

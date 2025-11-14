@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Menu, X, Phone, Mail, MapPin, Heart, Users, BookOpen, Home, ChevronRight, Award, Target, Eye, Handshake, Building, Shield, Leaf } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Collage from '@/components/image/Collage';
+import Image from 'next/image';
 
 export default function MusindiaWebsite() {
 
@@ -12,7 +14,7 @@ export default function MusindiaWebsite() {
 
       {/* Main Content */}
       <main>
-      <HomePage  />
+        <HomePage />
       </main>
 
       {/* Footer */}
@@ -31,6 +33,22 @@ function HomePage() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-orange-50 via-white to-red-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
+          <div className="rounded-lg overflow-hidden shadow-sm p-4">
+            <h1 className="text-3xl text-red-600 sm:text-4xl md:text-6xl font-bold text-gray-900 mb-6 text-center">
+            Manav Utthan Samiti 
+            </h1>
+            {/* <Image
+              src={'/image/gallery3.png'}
+              alt={`hero`}
+              width={1200}
+              height={200}
+              className="w-full h-auto object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 33vw"
+            /> */}
+          </div>
+          <div className='mt-12'>
+            <Collage images={['/image/gallery0.jpeg', '/image/gallery1.jpeg', '/image/gallery2.jpeg']} layout="masonry" />
+          </div>
           <div className="text-center mb-16">
             <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
               Empowering Lives,
@@ -39,7 +57,7 @@ function HomePage() {
               </span>
             </h2>
             <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto mb-10 leading-relaxed">
-              A registered nonprofit voluntary organization dedicated to women and child development, 
+              A registered nonprofit voluntary organization dedicated to women and child development,
               elderly care, and comprehensive community welfare across 20+ districts of Uttar Pradesh
             </p>
 
@@ -47,6 +65,7 @@ function HomePage() {
 
           {/* Feature Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 border border-gray-100">
               <div className="h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-white opacity-10"></div>
@@ -109,7 +128,9 @@ function HomePage() {
               <p className="text-sm text-gray-500 mt-2">Every year</p>
             </div>
           </div>
+
         </div>
+
       </section>
 
       {/* What We Do Section */}
@@ -119,7 +140,7 @@ function HomePage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">What We Do</h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-orange-500 to-red-600 mx-auto rounded-full"></div>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-10">
             <div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl p-8 shadow-lg border border-orange-100">
               <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
@@ -152,7 +173,7 @@ function HomePage() {
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-6">Get Involved</h3>
               <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                Join us in making a tangible difference in communities across Uttar Pradesh. Whether through 
+                Join us in making a tangible difference in communities across Uttar Pradesh. Whether through
                 volunteering, partnerships, or support, every contribution helps us serve those in need.
               </p>
               <div className="space-y-3 mb-6">
@@ -169,7 +190,7 @@ function HomePage() {
           </div>
         </div>
       </section>
-      </div>
+    </div>
   );
 }
 

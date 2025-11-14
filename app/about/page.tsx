@@ -5,6 +5,26 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Building, ChevronRight, Eye, Target } from "lucide-react";
 
+import { pageData, siteMeta } from "../seoData";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: pageData.about.title,
+  description: pageData.about.description,
+  keywords: pageData.about.keywords,
+  alternates: { canonical: `${siteMeta.siteUrl}/about` },
+  openGraph: {
+    title: pageData.about.title,
+    description: pageData.about.description,
+    url: `${siteMeta.siteUrl}/about`,
+    images: [{ url: `${siteMeta.siteUrl}${pageData.about.image}`, width: 1200, height: 630, alt: pageData.about.title }],
+    type: "article",
+  }
+};
+
+
+
+
 // This page contains organization history, vision, mission, and objectives
 export default function AboutPage({ changePage }: any) {
   return (

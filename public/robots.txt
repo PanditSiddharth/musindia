@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.musindia.org.in
+
+# Sitemaps
+Sitemap: https://www.musindia.org.in/sitemap.xml

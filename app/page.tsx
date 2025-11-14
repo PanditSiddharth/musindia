@@ -1,10 +1,36 @@
-"use client"
-import React, { useState } from 'react';
 import { Menu, X, Phone, Mail, MapPin, Heart, Users, BookOpen, Home, ChevronRight, Award, Target, Eye, Handshake, Building, Shield, Leaf } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Collage from '@/components/image/Collage';
 import Image from 'next/image';
+
+// app/page.tsx
+import { pageData, siteMeta } from "./seoData";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: pageData.home.title,
+  description: pageData.home.description,
+  keywords: pageData.home.keywords,
+  alternates: {
+    canonical: `${siteMeta.siteUrl}/`
+  },
+  openGraph: {
+    title: pageData.home.title,
+    description: pageData.home.description,
+    url: `${siteMeta.siteUrl}/`,
+    images: [
+      {
+        url: `${siteMeta.siteUrl}${pageData.home.image}`,
+        width: 1200,
+        height: 630,
+        alt: pageData.home.title,
+      },
+    ],
+    type: "website",
+  }
+};
+
 
 export default function MusindiaWebsite() {
 

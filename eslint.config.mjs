@@ -17,8 +17,9 @@ const eslintConfig = defineConfig([
     rules: {
   "@typescript-eslint/no-explicit-any": "off",
   "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/implicit-any-catch": "off"
 }
-  }
+}
 ]);
 
 export default eslintConfig;

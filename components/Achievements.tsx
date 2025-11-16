@@ -107,6 +107,53 @@ export function AchievementsSection() {
           belts, and safe driving practices.
         </p>
       </div>
+
+      {/* 10 */}
+      <div className="space-y-3">
+        <h3 className="text-xl font-semibold text-gray-900">Free Eye-Checkup & Spectacles Distribution for Truck Drivers – 21 May 2022</h3>
+        <p className="text-gray-700 leading-relaxed">
+          On 21 May, at the Lucknow Toll Plaza on the Lucknow–Agra Expressway, with the cooperation of the Ministry of
+          Road Transport and Highways, Government of India, Manav Utthan Samiti organized a free eye-checkup and spectacles
+          distribution drive for truck drivers. Chief guest <strong>Mr. Ramesh Chandra Dubey</strong>, Chief Security Officer,
+          inaugurated the event. Committee coordinator <strong>Mr. R.K. Chaurasia</strong> welcomed the chief guest with a
+          garland and memento. Security officials <strong>Rajesh Kumar Singh Chandel</strong>, <strong>B.P. Verma</strong>,
+          <strong>Dinesh Singh</strong>, and <strong>Ashok Singh</strong> were also honored.
+          <br /><br />A medical team including <strong>Dr. Ugrasen Yadav</strong>, <strong>Aarti Nag</strong>,
+          <strong>Sonika Pandey</strong>, <strong>Mumtaz Ali</strong>, <strong>Virendra Singh</strong>,
+          <strong>Naman Tripathi</strong>, and <strong>A.P. Singh</strong> participated actively. Around
+          <strong>80 truck drivers</strong> underwent eye examinations and received free spectacles. The camp continued from
+          <strong>21 May 2022</strong> to <strong>27 May 2022</strong>.
+        </p>
+      </div>
+
+
+      {/* 11 */}
+      <div className="space-y-3">
+        <h3 className="text-xl font-semibold text-gray-900">Women’s Day – Financial Literacy & Investment Awareness Program</h3>
+        <p className="text-gray-700 leading-relaxed">
+          A financial literacy and investment awareness program was organized by Manav Utthan Samiti, Lucknow on the
+          occasion of <strong>Women’s Day</strong> at Ram Vihar Colony, Rajajipuram, Lucknow. The session focused on
+          empowering women with essential financial knowledge, encouraging savings, investment planning, and awareness of
+          government schemes designed for women.
+        </p>
+      </div>
+
+
+      {/* 12 */}
+      <div className="space-y-3">
+        <h3 className="text-xl font-semibold text-gray-900">Minority Affairs Awareness Seminar – 29 June 2019</h3>
+        <p className="text-gray-700 leading-relaxed">
+          With support from the Ministry of Minority Affairs, Government of India, a one-day seminar was held on
+          <strong>29 June 2019</strong> at Hardauli, Tehsil Baberu, District Banda. Chief guest
+          <strong>Chandrapal Kushwaha</strong> inaugurated the program. Former Director <strong>M.L. Gupta</strong> and
+          Government Advocate <strong>Kaushal Kishore Sharma</strong> were present.
+          <br /><br />The seminar focused on government schemes including <strong>Seekho Kamao</strong>, <strong>USTTAD</strong>,
+          <strong>Nai Manzil</strong>, <strong>Hamari Dharohar</strong>, <strong>Naya Savera</strong>, and
+          <strong>Nai Roshni</strong>. Speakers highlighted the importance of education, awareness, and accessibility to
+          government benefits. Coordinator <strong>Ramkishor Chaurasia</strong> emphasized the role of education in enabling
+          communities to understand and access welfare schemes.
+        </p>
+      </div>
     </section>
   );
 }

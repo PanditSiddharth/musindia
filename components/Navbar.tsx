@@ -9,10 +9,12 @@ import {
   Heart,
   Users,
   Home,
+  Images,
 } from "lucide-react";
 
 const navigation = [
   { name: "Home", id: "home", href: "/", icon: Home },
+  { name: "Gallery", id: "gallery", href: "/gallery", icon: Images },
   { name: "About Us", id: "about", href: "/about", icon: Users },
   { name: "Our Work", id: "work", href: "/work", icon: Heart },
   { name: "Contact", id: "contact", href: "/contact", icon: Phone },

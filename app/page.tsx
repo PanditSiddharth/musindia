@@ -38,7 +38,6 @@ export default function MusindiaWebsite() {
   return (
     <div className="min-h-screen bg-white">
 
-
       {/* Main Content */}
       <main>
         <HomePage />

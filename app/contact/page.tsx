@@ -6,8 +6,8 @@ import Navbar from "@/components/Navbar";
 import { Building, Handshake, Heart, Mail, MapPin, Phone } from "lucide-react";
 
 // This page contains contact information, office details, and call-to-action
-export default function ContactPage({ changePage }: any) {
-  console.log(changePage)
+export default function ContactPage() {
+  
   return (<div>
 
       <Navbar  />

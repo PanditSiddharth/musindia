@@ -69,7 +69,14 @@ export default function GalleryClient({ filenames }: { filenames: string[] }) {
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-2xl sm:text-3xl font-semibold mb-4">Gallery</h1>
+
+           <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">Gallery</h1>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-orange-500 to-red-600 mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Here's our gallery images which shows our helps.
+          </p>
+        </div>
 
         <section className="bg-white rounded-2xl p-4 shadow-sm">
           {loading ? (

@@ -1,4 +1,4 @@
-import { Menu, X, Phone, Mail, MapPin, Heart, Users, BookOpen, Home, ChevronRight, Award, Target, Eye, Handshake, Building, Shield, Leaf } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin, Heart, Users, BookOpen, Home, ChevronRight, Award, Target, Eye, Handshake, Building, Shield, Leaf, ChevronDown } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Collage from '@/components/image/Collage';
@@ -7,6 +7,7 @@ import Image from 'next/image';
 // app/page.tsx
 import { pageData, siteMeta } from "./seoData";
 import type { Metadata } from "next";
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: pageData.home.title,
@@ -61,7 +62,7 @@ function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="rounded-lg overflow-hidden shadow-sm p-4">
             <h1 className="text-4xl text-red-600 sm:text-4xl md:text-6xl font-bold text-gray-900 text-center">
-            Manav Utthan Samiti 
+              Manav Utthan Samiti
             </h1>
             {/* <Image
               src={'/image/gallery3.png'}
@@ -72,8 +73,11 @@ function HomePage() {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 33vw"
             /> */}
           </div>
-          <div className='mt-12'>
+          <div className='mt-12 justify-items-center'>
             <Collage images={['/image/gallery0.jpeg', '/image/gallery1.jpeg', '/image/gallery2.jpeg']} layout="masonry" />
+            <Link className='text-blue-500 text-center hover:underline border border-blue-600 p-3 rounded-2xl flex w-fit' href="/gallery">
+              <ChevronDown /> Show Full Gallery
+            </Link>
           </div>
           <div className="text-center mb-16">
             <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">

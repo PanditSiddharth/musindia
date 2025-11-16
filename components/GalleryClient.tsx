@@ -67,7 +67,7 @@ export default function GalleryClient({ filenames }: { filenames: string[] }) {
   }, [filenames]);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 py-8 px-2 md:px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
 
            <div className="text-center mb-16">
@@ -78,7 +78,7 @@ export default function GalleryClient({ filenames }: { filenames: string[] }) {
           </p>
         </div>
 
-        <section className="bg-white rounded-2xl p-4 shadow-sm">
+        <section className="bg-white rounded-2xl p-2 md:p-4 shadow-sm">
           {loading ? (
             <div className="flex items-center justify-center h-64">
               <div className="text-center text-sm text-gray-500">Loading images...</div>

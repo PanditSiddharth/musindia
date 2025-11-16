@@ -5,9 +5,9 @@ import {AchievementsSection} from "@/components/Achievements";
 
 export default function AchievementsPage() {
     return (
-        <div className="bg-white flex flex-col gap-8">
+        <div className="bg-white flex flex-col gap-8 ">
             <Navbar />
-            <main>
+            <main className="max-w-6xl mx-auto">
                 <AchievementsSection />
             </main>
             <Footer />

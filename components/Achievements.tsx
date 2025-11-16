@@ -2,7 +2,7 @@ import React from "react";
 
 export function AchievementsSection() {
   return (
-    <section className="mt-12 mb-12 space-y-12 max-w-6xl mx-auto bg-white">
+    <section className="mt-12 mb-12 space-y-12">
       <h2 className="text-3xl font-bold text-gray-800">Major Activities & Achievements</h2>
 
       {/* 1 */}

@@ -11,7 +11,7 @@ export default async function Page() {
   console.log('Images directory:', imagesDir);
   let files: string[] = [];
   try {
-    files = fs.readdirSync(imagesDir).filter((f) => /\.(jpe?g|png|webp|gif)$/i.test(f))
+    files = fs.readdirSync(imagesDir).filter((f) => /\.(jpe?g|png|webp|gif)$/i.test(f)).map(photo=> "/image/" + photo)
     console.log('Files found:', files);
   } catch (e) {
     files = [];

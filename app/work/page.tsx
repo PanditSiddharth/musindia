@@ -4,47 +4,12 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { BookOpen, ChevronRight, Handshake, Heart, Leaf, Target, Users } from "lucide-react";
+import Link from "next/link";
+import { programs } from "./programs";
 
 // This page displays all programs, initiatives, and detailed work areas
+
 export default function WorkPage() {
-  const programs = [
-    {
-      title: 'Vriddha Ashram (Elderly Care)',
-      icon: Users,
-      gradient: 'from-orange-400 to-red-500',
-      description: 'Comprehensive elderly care including shelter, medical support, nutritious meals, recreational activities, and a dignified living environment for senior citizens who need assistance and companionship.'
-    },
-    {
-      title: 'Women Empowerment',
-      icon: Heart,
-      gradient: 'from-pink-400 to-red-500',
-      description: 'Awareness programs about legal rights, eliminating dowry and domestic violence, preventing female feticide, providing vocational training, and creating income-generating opportunities for women.'
-    },
-    {
-      title: 'Child Welfare',
-      icon: BookOpen,
-      gradient: 'from-blue-400 to-indigo-500',
-      description: 'Working for child labor elimination, preventing child exploitation, and creating proper environment for physical, educational, and economic development of children across all communities.'
-    },
-    {
-      title: 'Labor Welfare',
-      icon: Handshake,
-      gradient: 'from-green-400 to-teal-500',
-      description: 'Facilitating group insurance, health insurance, labor department registration, organizing self-help groups, and ensuring fair treatment for workers and weaker sections of society.'
-    },
-    {
-      title: 'Environmental Protection',
-      icon: Leaf,
-      gradient: 'from-teal-400 to-green-500',
-      description: 'Working to reduce air and water pollution, developing pollution-free environment, promoting sustainable practices, and awakening public consciousness about nature protection.'
-    },
-    {
-      title: 'Government Schemes',
-      icon: Target,
-      gradient: 'from-purple-400 to-pink-500',
-      description: 'Effective implementation and coordination of state and central government programs and schemes for integrated public development and maximum community benefit.'
-    }
-  ];
 
   return (
     <div>
@@ -64,15 +29,15 @@ export default function WorkPage() {
           {programs.map((program, index) => {
             const Icon = program.icon;
             return (
-              <div key={index} className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2 duration-300 border border-gray-100 overflow-hidden">
+              <Link key={index} href={"/work/" + program?.slug} className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2 duration-300 border border-gray-100 overflow-hidden flex flex-col">
                 <div className={`h-32 bg-gradient-to-br ${program.gradient} flex items-center justify-center`}>
                   <Icon className="w-16 h-16 text-white" />
                 </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">{program.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{program.description}</p>
                 </div>
-              </div>
+                <div className="mt-auto h-8 border border-gray-400 w-28 rounded-2xl text-black flex items-center justify-center m-3 justify-self-center">More Details</div>
+              </Link>
             );
           })}
         </div>

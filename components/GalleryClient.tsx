@@ -7,6 +7,7 @@ import "react-photo-album/rows.css";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import RenderPhotos from "./RenderPhotos";
 
 type PhotoItem = {
   src: string;
@@ -77,45 +78,7 @@ export default function GalleryClient({ filenames }: { filenames: string[] }) {
             Here's our gallery images which shows our helps.
           </p>
         </div>
-
-        <section className="bg-white rounded-2xl p-2 md:p-4 shadow-sm">
-          {loading ? (
-            <div className="flex items-center justify-center h-64">
-              <div className="text-center text-sm text-gray-500">Loading images...</div>
-            </div>
-          ) : photos && photos.length > 0 ? (
-            <>
-              <RowsPhotoAlbum
-                photos={photos}
-                spacing={6}
-                targetRowHeight={200}
-                rowConstraints={{ minPhotos: 1, maxPhotos: 5, singleRowMaxHeight: 360 }}
-                onClick={({ index }) => {
-                  setIndex(index);
-                  setOpen(true);
-                }}
-              />
-
-              {/* WhatsApp-style Lightbox Viewer */}
-              <Lightbox
-                open={open}
-                close={() => setOpen(false)}
-                slides={photos}
-                index={index}
-                on={{ view: ({ index }) => setIndex(index) }}
-                plugins={[Zoom]}
-              />
-
-              <p className="mt-4 text-xs text-gray-500">
-                Showing images from <code>/public/images</code>
-              </p>
-            </>
-          ) : (
-            <div className="h-48 flex items-center justify-center text-gray-500">
-              No images found in <code>/public/images</code>
-            </div>
-          )}
-        </section>
+          <RenderPhotos filenames={filenames} />
       </div>
     </div>
   );

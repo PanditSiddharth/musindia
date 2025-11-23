@@ -137,7 +137,7 @@ The Government Advocate present on the stage explained the rights of citizens an
     return (
         <div>
             <Navbar />
-            <div className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white text-black">
+            <div className="py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white text-black">
                 <div className="max-w-6xl mx-auto">
                     {/* Title */}
                     <h1 className="text-4xl font-bold mb-4">{program.title}</h1>

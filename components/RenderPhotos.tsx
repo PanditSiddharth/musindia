@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { RowsPhotoAlbum } from 'react-photo-album';
 import Lightbox from 'yet-another-react-lightbox';
 import { Zoom } from 'yet-another-react-lightbox/plugins';
+import "react-photo-album/rows.css";
+import "yet-another-react-lightbox/styles.css";
 type PhotoItem = {
     src: string;
     width: number;

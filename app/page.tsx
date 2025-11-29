@@ -1,13 +1,17 @@
 import { Menu, X, Phone, Mail, MapPin, Heart, Users, BookOpen, Home, ChevronRight, Award, Target, Eye, Handshake, Building, Shield, Leaf, ChevronDown } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Collage from '@/components/image/Collage';
 import Image from 'next/image';
-
+// app/gallery/page.tsx
+import fs from 'fs';
+import path from 'path';
 // app/page.tsx
 import { pageData, siteMeta } from "./seoData";
 import type { Metadata } from "next";
 import Link from 'next/link';
+import RenderPhotos from '@/components/RenderPhotos';
+import { CourselSlider } from '@/components/CourselSlider';
+import GroupBlurCarousel from '@/components/FramerMotion';
 
 export const metadata: Metadata = {
   title: pageData.home.title,
@@ -49,31 +53,62 @@ export default function MusindiaWebsite() {
   );
 }
 
+
+
+
 // ==================== HOME PAGE COMPONENT ====================
 // File: pages/HomePage.jsx
 // This is the landing page with hero section, stats, and overview
-function HomePage() {
+async function HomePage() {
+
+  const imagesDir = path.join(process.cwd(), 'public', 'image');
+  console.log('Images directory:', imagesDir);
+  let files: string[] = [];
+  try {
+    files = fs.readdirSync(imagesDir).filter((f) => /\.(jpe?g|png|webp|gif)$/i.test(f)).map(photo => "/image/" + photo)
+    console.log('Files found:', files);
+  } catch (e) {
+    files = [];
+  }
+
   return (
     <div>
       <Navbar />
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-orange-50 via-white to-red-50 py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="rounded-lg overflow-hidden shadow-sm p-2 md:p-4">
-            <h1 className="text-4xl text-red-600 sm:text-4xl md:text-6xl font-bold text-gray-900 text-center">
-              Manav Utthan Samiti
-            </h1>
-            {/* <Image
-              src={'/image/gallery3.png'}
-              alt={`hero`}
-              width={1200}
-              height={200}
-              className="w-full h-auto object-cover"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 33vw"
-            /> */}
+      {/* Hero Section - Original Style */}
+      <section className="relative bg-gradient-to-br from-orange-50 via-white to-red-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+          {/* Logo and Title Banner */}
+          <div className="flex items-start gap-6 w-full rounded-lg shadow-2xl p-6 mb-4" >
+            <div className="">
+              <img src="/clogo.png" alt="Logo" className="w-48 h-auto" />
+              {/* <img src="/favicon.ico" alt="Logo" className="w-48 h-auto md:hidden" /> */}
+            </div>
+            <div className="w-0.5 h-36 bg-red-200"></div>
+            <div className="flex flex-col pt-4">
+              <h1 className="text-2xl md:text-6xl font-bold text-red-600 mb-2" style={{ fontFamily: 'system-ui' }}>
+                <span className='text-green-700 pr-2'>
+                  Manav
+                </span> 
+                <span>
+                Utthan Samiti
+                </span>
+              </h1>
+              <div className="text-sm md:text-lg text-red-500" style={{ fontFamily: 'system-ui' }}>
+                <p>दिलों को जोडने का एक प्रयास!</p>
+                <p>मानवता को ऊँचा उठाने का एक विश्वास!!</p>
+                <div className="w-36 h-0.5 md:w-80 bg-red-500 mt-2"></div>
+              </div>
+            </div>
           </div>
-          <div className='mt-12 justify-items-center'>
-            <Collage images={['/image/gallery0.jpeg', '/image/gallery1.jpeg', '/image/gallery2.jpeg']} layout="masonry" />
+          <CourselSlider files={files} autoplayType="autoplay1" />
+          <GroupBlurCarousel files={files} />
+          <CourselSlider files={files} autoplayType="autoplay2" />
+          {/* <RenderPhotos filenames={['/image/gallery0.jpeg', '/image/gallery1.jpeg', '/image/gallery2.jpeg']} /> */}
+
+          <div className="flex flex-col items-center mt-6 gap-4">
+            {/* <Collage images={['/image/gallery0.jpeg', '/image/gallery1.jpeg', '/image/gallery2.jpeg']} layout="masonry" /> */}
             <Link className='text-blue-500 text-center hover:underline border border-blue-600 p-3 rounded-2xl flex w-fit' href="/gallery">
               <ChevronDown /> Show Full Gallery
             </Link>

@@ -78,7 +78,7 @@ export default function AboutPage() {
                 className="text-center p-6 bg-orange-50 rounded-2xl border border-orange-100"
               >
                 <div className="text-3xl font-bold text-orange-600 mb-2">{item.label}</div>
-                <div className="text-gray-700 font-medium">{item.value}</div>
+                <div className="text-gray-700 font-medium" id="vision-top">{item.value}</div>
               </div>
             ))}
           </div>
@@ -91,7 +91,7 @@ export default function AboutPage() {
               <div className="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mr-4">
                 <Eye className="w-8 h-8 text-orange-600" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900">Our Vision</h3>
+              <h3 className="text-3xl font-bold text-gray-900" >Our Vision</h3>
             </div>
             <p className="text-gray-700 text-lg leading-relaxed">
               To strengthen human resources, promote social justice, build harmony, and strive for sustainable human development.
@@ -103,7 +103,7 @@ export default function AboutPage() {
               <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mr-4">
                 <Target className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900">Our Mission</h3>
+              <h3 className="text-3xl font-bold text-gray-900" id="mission">Our Mission</h3>
             </div>
             <p className="text-gray-700 text-lg leading-relaxed">
               To enhance character, skills, health, education, environmental awareness, and community responsibility.

@@ -44,14 +44,14 @@ They also explained the various benefits of yoga, particularly in relieving issu
 
             ]
         },
-        "women-empowerment": {
-            title: "Women Empowerment",
+        "world-tobacco-day": {
+            title: "World Tobacco Day",
             gradient: "from-pink-400 to-red-500",
             sections: [
                 {
                     num: '1',
                     description:
-                        `Content coming soon...`
+                        `On the occasion of World Tobacco Day, a program was organized in the year 2018 at Village Barsainya, Khairabad Block, District Sitapur, Uttar Pradesh. On this occasion, a rally was conducted with the participation of the village dignitaries as well as school boys and girls.During the rally, children were informed about the harmful effects of consuming tobacco, betel products, bidis, cigarettes, alcohol, and other intoxicating substances. The general public was also made aware and advised to prevent children from using tobacco and other addictive substances. They were informed about the various health hazards caused by these substances.`
                 }
             ]
         },
@@ -99,7 +99,7 @@ The Government Advocate present on the stage explained the rights of citizens an
                 {
                     num: '1',
                     description:
-                        `Content coming soon...`
+                        `With the support of the Ministry of Minority Affairs, Government of India, the Manav Utthan Samiti, Lucknow launched the Nai Roshni Programme for minority women in District Banda during the year 2016–17. Approval was granted for providing a 7-day training to women between the ages of 18 to 50 years in Banda, Uttar Pradesh.Under this programme, Nai Roshni training was conducted at various locations where women were developed as community leaders. They were trained in practical day-to-day skills such as Booking train tickets offline and online Opening a bank account Completing KYC formalities Making deposits and withdrawals Booking bus tickets Forming self-help groups and working collectively Training sessions were successfully conducted with the help of subject experts. After completion of the training, each beneficiary received ₹300 transferred into their bank account. For the following one year, regular meetings were held with the beneficiaries and their groups to continue guiding and strengthening the programme.`
                 }
             ]
         },

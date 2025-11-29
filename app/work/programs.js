@@ -9,8 +9,8 @@ export const programs = [
     // description: 'Comprehensive elderly care including shelter, medical support, nutritious meals, recreational activities, and a dignified living environment for senior citizens who need assistance and companionship.'
   },
   {
-    title: 'Women Empowerment',
-    slug: "women-empowerment",
+    title: 'World Tobacco Day',
+    slug: "world-tobacco-day",
     icon: Heart,
     gradient: 'from-pink-400 to-red-500',
     // description: 'Awareness programs about legal rights, eliminating dowry and domestic violence, preventing female feticide, providing vocational training, and creating income-generating opportunities for women.'

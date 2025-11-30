@@ -39,7 +39,7 @@ export default function GroupBlurCarousel({ files, groupSize = 3, delayMs = 4000
 
   return (
     <div className="w-full relative">
-      <div className="w-full h-[320px] md:h-[380px] lg:h-[420px] overflow-hidden relative">
+      <div className="w-full h-[250px] md:h-[320px] lg:h-[380px] overflow-hidden relative">
         <AnimatePresence mode="wait">
           {/* key changes so AnimatePresence will exit old group then enter new group */}
           <motion.div
@@ -67,7 +67,7 @@ export default function GroupBlurCarousel({ files, groupSize = 3, delayMs = 4000
                       src={src}
                       alt={`slide-${index}-${i}`}
                       className="w-full h-full object-cover"
-                      draggable={false}
+                      draggable={true}
                     />
                   </div>
                 </motion.div>

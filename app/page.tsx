@@ -80,7 +80,7 @@ async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
 
           {/* Logo and Title Banner */}
-          <div className="flex items-start gap-6 w-full rounded-lg shadow-2xl p-6 mb-4" >
+          <div className="flex items-start gap-6 w-full shadow-2xl p-6 bg-white" >
             <div className="">
               <img src="/clogo.png" alt="Logo" className="w-48 h-auto" />
               {/* <img src="/favicon.ico" alt="Logo" className="w-48 h-auto md:hidden" /> */}
@@ -90,9 +90,9 @@ async function HomePage() {
               <h1 className="text-2xl md:text-6xl font-bold text-red-600 mb-2" style={{ fontFamily: 'system-ui' }}>
                 <span className='text-green-700 pr-2'>
                   Manav
-                </span> 
+                </span>
                 <span>
-                Utthan Samiti
+                  Utthan Samiti
                 </span>
               </h1>
               <div className="text-sm md:text-lg text-red-500" style={{ fontFamily: 'system-ui' }}>
@@ -103,7 +103,15 @@ async function HomePage() {
             </div>
           </div>
           <CourselSlider files={files} autoplayType="autoplay1" />
-          <GroupBlurCarousel files={files} />
+          <div className='md:hidden'>
+            <GroupBlurCarousel files={files} groupSize={1} />
+          </div>
+          <div className='hidden md:block lg:hidden'>
+            <GroupBlurCarousel files={files} groupSize={2} />
+          </div>
+          <div className='hidden lg:block'>
+            <GroupBlurCarousel files={files} groupSize={3} />
+          </div>
           <CourselSlider files={files} autoplayType="autoplay2" />
           {/* <RenderPhotos filenames={['/image/gallery0.jpeg', '/image/gallery1.jpeg', '/image/gallery2.jpeg']} /> */}
 

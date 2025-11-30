@@ -39,11 +39,11 @@ export function CourselSlider(f: { files: string[], autoplayType?: "autoplay1" |
         {f?.files?.map((file, index) => (
           <CarouselItem
             key={index}
-            className="pl-2 md:pl-4 basis-full md:basis-1/2"
+            className="basis-full md:basis-1/2 mx-1 p-0"
           >
-            <div className="p-1">
-              <Card className="border-0 shadow-lg overflow-hidden group p-0">
-                <CardContent className="p-0 relative">
+            <div className="py-2">
+              <Card className="border-0 shadow-lg overflow-hidden group p-0 rounded-none m-0">
+                <CardContent className="p-0 relative m-0">
                   <div className="relative h-[300px] md:h-[350px] lg:h-[380px] overflow-hidden">
                     <img
                       src={file}

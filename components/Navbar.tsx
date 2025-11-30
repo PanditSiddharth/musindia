@@ -16,14 +16,9 @@ import {
 
 import {
   Menubar,
-  MenubarCheckboxItem,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarRadioGroup,
-  MenubarRadioItem,
-  MenubarSeparator,
-  MenubarShortcut,
   MenubarSub,
   MenubarSubContent,
   MenubarSubTrigger,
@@ -134,11 +129,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between py-3">
           {/* Logo / Brand */}
           <div
-            role="button"
+            // role="button"
             tabIndex={0}
-            onClick={() => (window.location.href = "/")}
+            // onClick={() => (window.location.href = "/")}
             onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") window.location.href = "/";
+              // if (e.key === "Enter" || e.key === " ") window.location.href = "/";
             }}
             className="flex items-center gap-3 cursor-pointer select-none"
             aria-label="Manav Utthan Samiti - go to home"
@@ -243,7 +238,7 @@ export default function Navbar() {
                     className={`flex w-full px-4 py-3 rounded-lg text-left font-medium transition text-gray-700 focus:outline-none hover:bg-gray-50 hover:no-underline`}
                     aria-current={active ? "page" : undefined}
                   >
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 cursor-pointer select-none">
                       <Icon className="w-5 h-5" aria-hidden />
                       <span className="hover:no-underline">{item.name}</span>
                     </div>

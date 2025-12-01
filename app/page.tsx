@@ -76,7 +76,7 @@ async function HomePage() {
       <Navbar />
       {/* Hero Section */}
       {/* Hero Section - Original Style */}
-      <section className="relative bg-gradient-to-br from-orange-50 via-white to-red-50 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-orange-50 via-white to-red-50 overflow-hidden bg-linear-to-r from-purple-400 via-pink-500 to-red-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
 
           {/* Logo and Title Banner */}
@@ -175,7 +175,7 @@ async function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-r from-purple-400 via-pink-500 to-red-500">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Our Impact in Numbers</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

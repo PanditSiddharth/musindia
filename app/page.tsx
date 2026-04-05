@@ -100,7 +100,7 @@ export default async function MusindiaWebsite() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 relative">
           {/* Header Banner */}
-          <div className="flex items-center gap-5 p-6 mb-8">
+          <div className="flex items-center gap-2 md:gap-5 p-6 mb-8">
             <img src="/clogo.png" alt="Logo" className="w-36 h-auto flex-shrink-0" />
             <div className="w-px h-24 bg-gradient-to-b from-transparent via-orange-200 to-transparent" />
             <div>

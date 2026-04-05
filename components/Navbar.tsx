@@ -1,134 +1,118 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  Menu,
-  X,
-  Phone,
-  Heart,
-  Users,
-  Home,
-  Images,
-  ArrowRight,
-  ArrowLeft,
-} from "lucide-react";
-
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
-  MenubarTrigger,
-} from "@/components/ui/menubar"
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
-
+import { Menu, X, ChevronDown, Phone, Heart } from "lucide-react";
 import { programs } from "@/app/work/programs";
 import Image from "next/image";
 
-const getWorks = () => {
-  const pro = [] as any[];
-  for (const program of programs) {
-    pro.push({ name: program.title, href: `/work/${program.slug}`, submenu: [] });
-  }
-  return pro;
-}
+const getWorks = () =>
+  programs.map((p) => ({ name: p.title, href: `/work/${p.slug}` }));
 
 const navigation = [
-  { name: "Home", id: "home", href: "/", icon: Home, submenu: [] },
-  // {
-  //   name: "Program", id: "program", icon: Heart, submenu: [
-  //     { name: "Atal Vayo Abhyuday Yojna", href: "/atal-vayo-abhyuday-yojna", submenu: [] },
-  //     { name: "Nai Roshani", href: "/nai-roshani", submenu: [] },
-  //     { name: "Kisan Gosthi Program", href: "/kisan-gosthi-program", submenu: [] },
-  //     { name: "International Yoga Day", href: "/international-yoga-day", submenu: [] },
-  //     { name: "Tobacco Control Program", href: "/tobacco-control-program", submenu: [] },
-  //     { name: "Inter National Day", href: "/inter-national-day", submenu: [] },
-  //     { name: "Culture Program", href: "/culture-program", submenu: [] },
-  //     { name: "Financial Literacy", href: "/financial-literacy", submenu: [] },
-  //   ]
-  // },
-    {
-    name: "Program", id: "program", icon: Heart, submenu: [
-      { name: "Atal Vayo Abhyuday Yojna", href: "/about#1", submenu: [] },
-      { name: "Nai Roshani", href: "/about#2", submenu: [] },
-      { name: "Kisan Gosthi Program", href: "/about#3", submenu: [] },
-      { name: "International Yoga Day", href: "/about#4", submenu: [] },
-      { name: "Tobacco Control Program", href: "/about#5", submenu: [] },
-      { name: "Inter National Day", href: "/about#6", submenu: [] },
-      { name: "Culture Program", href: "/about#7", submenu: [] },
-      { name: "Financial Literacy", href: "/about#8", submenu: [] },
-    ]
-  },
-
+  { name: "Home", href: "/", children: [] },
   {
-    name: "Old Age Home", id: "old-age-home", icon: Heart, submenu: [
+    name: "Programs",
+    href: "#",
+    children: [
+      { name: "Atal Vayo Abhyuday Yojna", href: "/about#1" },
+      { name: "Nai Roshani", href: "/about#2" },
+      { name: "Kisan Gosthi Program", href: "/about#3" },
+      { name: "International Yoga Day", href: "/about#4" },
+      { name: "Tobacco Control Program", href: "/about#5" },
+      { name: "Financial Literacy", href: "/about#8" },
+    ],
+  },
+  {
+    name: "Old Age Home",
+    href: "#",
+    children: [
+      { name: "Old Age Home", href: "/work/old-age-home" },
       {
-        name: "Old Age Home Software", href: "https://dahua-smartpss.en.softonic.com/download", submenu: []
+        name: "Old Age Home Software",
+        href: "https://dahua-smartpss.en.softonic.com/download",
       },
-      {
-        name: "Old Age Home", href: "/work/old-age-home", submenu: []
-      },
-
-    ]
+    ],
+  },
+  { name: "Gallery", href: "/gallery", children: [] },
+  {
+    name: "About Us",
+    href: "#",
+    children: [
+      { name: "About Us", href: "/about" },
+      { name: "Our Vision", href: "/about#vision-top" },
+      { name: "Achievements", href: "/about/achievements" },
+    ],
   },
   {
-    name: "Gallery", id: "gallery", href: "/gallery", icon: Images, submenu: []
+    name: "Our Work",
+    href: "#",
+    children: [{ name: "All Work", href: "/work" }, ...getWorks()],
   },
-  {
-    name: "About Us", id: "about", icon: Users, submenu: [
-      { name: "About Us", href: "/about", submenu: [] },
-      { name: "Our Vision", href: "/about#vision-top", submenu: [] },
-      { name: "Our Mission", href: "/about#vision-top", submenu: [] },
-      { name: "Achievements", href: "/about/achievements", submenu: [] },
-    ]
-  },
-  {
-    name: "Our Work", id: "work", icon: Heart, submenu: [
-      { name: "Work", href: "/work", submenu: [] },
-
-      ...getWorks()
-    ]
-  },
-  { name: "Contact", id: "contact", href: "/contact", icon: Phone, submenu: [] },
+  { name: "Contact", href: "/contact", children: [] },
 ];
 
+function DropdownMenu({ items }: { items: { name: string; href: string }[] }) {
+  return (
+    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-64">
+      <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden py-2">
+        {items.map((item) => (
+          <Link
+            key={item.name}
+            href={item.href}
+            target={item.href.startsWith("http") ? "_blank" : "_self"}
+            rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors font-medium"
+          >
+            {item.name}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const pathname = usePathname();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Close mobile menu on route change
   useEffect(() => {
-    setIsMenuOpen(false);
-    // Scroll to top on navigation (client-only)
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsOpen(false);
+    setActiveDropdown(null);
   }, [pathname]);
 
-  const isActive = (href?: string) => {
-    if (!href) return false;
-    // treat root specially
-    if (href === "/") return pathname === "/" || pathname === "";
-    return pathname?.startsWith(href);
+  const handleMouseEnter = (name: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setActiveDropdown(name);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
   };
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50 border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-3">
-          {/* Logo / Brand */}
-          <div
+    <>
+      <header
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/90 backdrop-blur-xl shadow-md border-b border-orange-50"
+            : "bg-white shadow-sm border-b border-gray-100"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+    <div
             // role="button"
             tabIndex={0}
             // onClick={() => (window.location.href = "/")}
@@ -138,152 +122,143 @@ export default function Navbar() {
             className="flex items-center gap-3 cursor-pointer select-none"
             aria-label="Manav Utthan Samiti - go to home"
           >
-            <Image src="/logo.png" alt="Manav Utthan Samiti Logo" height={60} width={180} />
+            <Image src="/logo.png" alt="Manav Utthan Samiti Logo" height={30} width={120} />
 
 
           </div>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex lg:items-center lg:space-x-2" aria-label="Primary">
-            <Menubar className="flex items-center gap-2">
-              {navigation.map((item) => {
-                const active = isActive(item?.href);
-                return (
-                  <MenubarMenu key={item.id}>
-                    {item.href && (
-                      <Link href={item.href}
-                        className={`inline-flex items-center gap-2 px-2 py-1 rounded-lg font-medium transition focus:outline-none text-gray-700 hover:bg-orange-50 hover:text-orange-600 focus:ring-2 focus:ring-orange-400`}
-                        aria-current={active ? "page" : undefined}
-                      >
-                        <item.icon className="w-4 h-4" aria-hidden />
-                        <span>{item.name}</span>
-                      </Link>
+            {/* Desktop Nav */}
+            <nav className="hidden lg:flex items-center gap-1">
+              {navigation.map((item) => (
+                <div
+                  key={item.name}
+                  className="relative"
+                  onMouseEnter={() =>
+                    item.children.length > 0 && handleMouseEnter(item.name)
+                  }
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {item.href !== "#" && item.children.length === 0 ? (
+                    <Link
+                      href={item.href}
+                      className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
+                        pathname === item.href || pathname?.startsWith(item.href + "/")
+                          ? "text-orange-600 bg-orange-50"
+                          : "text-gray-600 hover:text-orange-600 hover:bg-orange-50"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  ) : (
+                    <button
+                      className={`flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
+                        activeDropdown === item.name
+                          ? "text-orange-600 bg-orange-50"
+                          : "text-gray-600 hover:text-orange-600 hover:bg-orange-50"
+                      }`}
+                    >
+                      {item.name}
+                      <ChevronDown
+                        className={`w-3.5 h-3.5 transition-transform ${
+                          activeDropdown === item.name ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                  )}
+                  {item.children.length > 0 &&
+                    activeDropdown === item.name && (
+                      <DropdownMenu items={item.children} />
                     )}
-                    {!item.href && (
-                      <div>
-                        <MenubarTrigger
-                          className={`inline-flex items-center gap-2 px-4 rounded-lg font-medium transition ${active
-                            ? "text-white shadow"
-                            : "text-gray-700 hover:bg-orange-50 hover:text-orange-600"
-                            } focus:outline-none focus:ring-2 focus:ring-orange-400`}
-                          aria-current={active ? "page" : undefined}
-                        >
-                          <item.icon className="w-4 h-4" aria-hidden />
-                          <span>{item.name}</span>
-                        </MenubarTrigger>
-                        <MenubarContent>
-                          {
-                            item.submenu.map((subitem) => (
-                              (subitem || [] as any[])?.submenu.length > 0 ? (
-                                <MenubarSub key={subitem.name}>
-                                  <MenubarSubTrigger>{subitem.name}</MenubarSubTrigger>
-                                  <MenubarSubContent>
-                                    {subitem.submenu.map((itm: any) => <Link key={itm.href} href={itm.href}>
-                                      <MenubarItem key={itm.name} >{itm.name}</MenubarItem>
-                                    </Link>)}
-                                  </MenubarSubContent>
-                                </MenubarSub>
-                              ) : (
-                                <Link key={subitem.name} href={subitem.href} target={subitem.href?.startsWith("http") ? "_blank" : "_self"} rel={subitem.href?.startsWith("http") ? "noopener noreferrer" : undefined}>
-                                  <MenubarItem >
-                                    {subitem.name}
-                                  </MenubarItem>
-                                </Link>
-                              )))
-                          }
+                </div>
+              ))}
+            </nav>
 
-                          {/* <MenubarSeparator /> */}
-                        </MenubarContent>
+            {/* CTA + Mobile Toggle */}
+            <div className="flex items-center gap-3">
+              <a
+                href="tel:9005044847"
+                className="hidden md:flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:shadow-lg hover:shadow-orange-200 transition-all"
+              >
+                <Phone className="w-4 h-4" />
+                Call Us
+              </a>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="lg:hidden p-2 rounded-xl hover:bg-gray-100 transition-colors"
+              >
+                {isOpen ? (
+                  <X className="w-6 h-6 text-gray-700" />
+                ) : (
+                  <Menu className="w-6 h-6 text-gray-700" />
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`lg:hidden transition-all duration-300 overflow-hidden ${
+            isOpen ? "max-h-screen" : "max-h-0"
+          }`}
+        >
+          <div className="bg-white border-t border-gray-100 px-4 py-4 space-y-1">
+            {navigation.map((item) => (
+              <div key={item.name}>
+                {item.children.length === 0 ? (
+                  <Link
+                    href={item.href}
+                    className="block px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <>
+                    <button
+                      onClick={() =>
+                        setMobileExpanded(
+                          mobileExpanded === item.name ? null : item.name
+                        )
+                      }
+                      className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors"
+                    >
+                      {item.name}
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${
+                          mobileExpanded === item.name ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {mobileExpanded === item.name && (
+                      <div className="ml-4 mt-1 space-y-1 border-l-2 border-orange-100 pl-3">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.name}
+                            href={child.href}
+                            target={
+                              child.href.startsWith("http") ? "_blank" : "_self"
+                            }
+                            className="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:text-orange-600 hover:bg-orange-50 transition-colors"
+                          >
+                            {child.name}
+                          </Link>
+                        ))}
                       </div>
                     )}
-                  </MenubarMenu>
-                );
-              })}
-            </Menubar>
-          </nav>
-
-          {/* mobile menu button */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setIsMenuOpen((s) => !s)}
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-menu"
-              className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2"
+                  </>
+                )}
+              </div>
+            ))}
+            <a
+              href="tel:9005044847"
+              className="flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-red-600 text-white px-4 py-3 rounded-xl text-sm font-semibold mt-3"
             >
-              {isMenuOpen ? <X className="w-6 h-6 text-gray-700" /> : <Menu className="w-6 h-6 text-gray-700" />}
-              <span className="sr-only">{isMenuOpen ? "Close menu" : "Open menu"}</span>
-            </button>
+              <Phone className="w-4 h-4" />
+              +91 9005044847
+            </a>
           </div>
         </div>
-
-        {/* mobile nav */}
-        <div
-          id="mobile-menu"
-          className={`lg:hidden overflow-hidden transition-all duration-200 ${isMenuOpen ? "max-h-auto pb-4" : "max-h-0"
-            }`}
-          aria-hidden={!isMenuOpen}
-        >
-          <Accordion
-            type="single"
-            collapsible
-            defaultValue="item-1"
-            className="flex flex-col">
-            {navigation.map((item) => {
-              const active = isActive(item.href);
-              const Icon = item.icon;
-              return (
-                <AccordionItem key={item.id} value={item.id}>
-                  <AccordionTrigger
-                    // href={item?.href + ""}
-                    className={`flex w-full px-4 py-3 rounded-lg text-left font-medium transition text-gray-700 focus:outline-none hover:bg-gray-50 hover:no-underline`}
-                    aria-current={active ? "page" : undefined}
-                  >
-                    <div className="flex items-center gap-2 cursor-pointer select-none">
-                      <Icon className="w-5 h-5" aria-hidden />
-                      <span className="hover:no-underline">{item.name}</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    {
-                      item.submenu.length > 0 ? item.submenu.map((subitem) => (
-                        (subitem || [] as any[])?.submenu.length > 0 ? (
-                          <div key={subitem.name}>
-                            <ArrowLeft className="w-4 h-4 mr-2" />
-                            <div>{subitem.name}</div>
-                            <div>
-                              {subitem.submenu.map((itm: any) => <Link key={itm.href} href={itm.href}>
-                                <ArrowLeft className="w-4 h-4 mr-2" />
-                                <div key={itm.name} className="px-4 rounded-lg text-left font-medium text-gray-700 hover:bg-gray-50 hover:cursor-pointer">{itm.name}</div>
-
-                              </Link>)}
-                            </div>
-                          </div>
-                        ) : (
-                          <Link
-                            key={subitem.name} href={subitem.href} target={subitem.href?.startsWith("http") ? "_blank" : "_self"}
-                            rel={subitem.href?.startsWith("http") ? "noopener noreferrer" : undefined}
-
-                          >
-                            <div
-                              className="pl-8 py-2 rounded-lg text-left font-medium text-gray-700 hover:bg-gray-50 flex items-center ">
-                              <ArrowRight className="w-4 h-4 mr-2" />
-
-                              {subitem.name}
-                            </div>
-                          </Link>
-                        ))) : <Link className="pl-8 py-2 rounded-lg text-left font-medium text-gray-700 hover:bg-gray-50 flex items-center " href={item.href + ""} key={item.name}>
-                        <ArrowRight className="w-4 h-4 mr-2" />
-
-                        {item.name}
-                      </Link>
-                    }
-                  </AccordionContent>
-                </AccordionItem>
-              );
-            })}
-          </Accordion>
-        </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }

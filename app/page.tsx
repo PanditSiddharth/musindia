@@ -95,10 +95,10 @@ export default async function MusindiaWebsite() {
       {/* ===================== HERO ===================== */}
       <section className="relative backdrop-blur-lg overflow-hidden">
         {/* Decorative blobs */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-200/30 blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 bg-orange-200/30 blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-red-100/40 blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 relative">
           {/* Header Banner */}
           <div className="flex items-center gap-5 p-6 mb-8">
             <img src="/clogo.png" alt="Logo" className="w-36 h-auto flex-shrink-0" />
